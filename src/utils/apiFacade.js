@@ -54,6 +54,11 @@ function apiFacade() {
         return fetch(URL + "/api/jokes", options).then(handleHttpErrors);
     }
 
+    const fetchNews = () => {
+        const options = makeOptions("GET", true);
+        return fetch("https://newsapi.org/v2/everything?q=tesla&from=2022-10-09&sortBy=publishedAt&apiKey=fff2a37c0fde4578b0350011d8286348", options).then(handleHttpErrors);
+    }
+
     function makeOptions(method, addToken, body) {
         method = method ? method : 'GET';
         const opts = {
@@ -83,7 +88,8 @@ function apiFacade() {
         logout,
         fetchData,
         fetchAdminData,
-        fetchJokes
+        fetchJokes,
+        fetchNews
     }
 }
 
