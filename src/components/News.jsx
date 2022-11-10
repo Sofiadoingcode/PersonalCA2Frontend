@@ -5,41 +5,46 @@ function News(props) {
     const [news, setNews] = useState([])
     useEffect(  () => {
         facade.fetchNews()
-            .then((res) => res.json())
+            .then((res) => res = res)
             .then(data => {
-                setNews(data);
+                setNews(data.articles);
             });
-    }, []);
+
+    }, [] );
 
 
     return (
         <>
             <div style={{padding: "2rem"}}>
-                <table striped bordered hover>
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Fact</th>
-                        <th>Picture</th>
-                        <th>Delete</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {news.map(
-                        (fact) => {
-                            return (
+
+
+                <div>
+                    <div>
+                        <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Pic</th>
+
+                        </tr>
+                        </thead>
+                        {
+                            news.map(
+                            new1 =>
                                 <>
                                     <tr>
-                                        <td>{fact.sources.id}</td>
-                                        <td>{fact.author}</td>
+                                        <td>{new1.title}</td>
+                                        <td>{new1.author}</td>
+                                        <td><img src={new1.urlToImage}/></td>
 
                                     </tr>
                                 </>
-                            )
-                        }
-                    )}
-                    </tbody>
-                </table>
+
+                        )}
+                    </div>
+
+                </div>
+
             </div>
         </>
     );

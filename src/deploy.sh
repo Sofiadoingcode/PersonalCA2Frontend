@@ -1,3 +1,3 @@
 #!/bin/bash
 
-scp -r ./dist/* root@sofiastunts.com:/var/www/frontend/
+scp -r ./dist/* root@sofiastunts.com:/var/www/

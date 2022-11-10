@@ -56,7 +56,7 @@ function apiFacade() {
 
     const fetchNews = () => {
         const options = makeOptions("GET", true);
-        return fetch("https://newsapi.org/v2/everything?q=tesla&from=2022-10-09&sortBy=publishedAt&apiKey=fff2a37c0fde4578b0350011d8286348", options).then(handleHttpErrors);
+        return fetch("https://newsapi.org/v2/everything?q=tesla&from=2022-10-10&sortBy=publishedAt&apiKey=fff2a37c0fde4578b0350011d8286348", options).then(handleHttpErrors);
     }
 
     function makeOptions(method, addToken, body) {
